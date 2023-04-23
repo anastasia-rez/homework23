@@ -1,0 +1,7 @@
+.container {
+    background-image: url(../img/img.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 800px;
+    height: 600px;
+}                                                                            
