@@ -1,30 +1,40 @@
-
 let item = 10;
 let secret = 1 + Math.floor(Math.random() * 100);
+
+let isFail = false;
 
 
 function guessNumber(){
 
-    let number = +userNumber.value;
-    console.log(number, secret);
-
-    if(item == 0){
-        helpText.innerHTML = 'Попытки закончились!';
-        round.innerHTML = 0;
+    if(isFail == true){
         return;
     }
 
-    if(number > secret){
-        helpText.innerHTML = `Загаданное число меньше, чем ${number}`;
-        round.innerHTML = item;
+    let number = +userNumber.value;
+
+    console.log(number, secret);
+
+    if(item == 0) {
+        helpText.innerHTML = `Попытки закончились! Правильный ответ: ${secret} `;
+        return;
+    } else {
+        userNumber.innerHTML = `${number}`;
+    }
+
+    item--;
+    
+    if(number == secret){
+        helpText.innerHTML = `Вы угадали! Это действительно число ${secret}`;
+        isFail = true;
     } else if(number < secret){
         helpText.innerHTML = `Загаданное число больше, чем ${number}`;
         round.innerHTML = item;
     } else {
-        helpText.innerHTML = `Вы угадали! Это действительно число ${secret}`;
+        helpText.innerHTML = `Загаданное число меньше, чем ${number}`;
         round.innerHTML = item;
     }
 
-    item--;
-        
+    
+    console.log(item);
 }
+
