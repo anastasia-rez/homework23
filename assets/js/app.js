@@ -14,8 +14,9 @@ function guessNumber(){
 
     console.log(number, secret);
 
-    if(item == 0) {
+    if(item == 1) {
         helpText.innerHTML = `Попытки закончились! Правильный ответ: ${secret} `;
+        round.innerHTML = 0;
         return;
     } else {
         userNumber.innerHTML = `${number}`;
